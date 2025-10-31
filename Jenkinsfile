@@ -17,7 +17,7 @@ pipeline {
 				{
 					steps{
 						echo "building..."	
-						sh "maven clean package"
+						sh "mvn clean package"
 
 					}
 
