@@ -7,6 +7,7 @@ pipeline {
 	environment{
 		SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner'
+		SONAR_SCANNER_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED"
 
 	}
         stages {  
