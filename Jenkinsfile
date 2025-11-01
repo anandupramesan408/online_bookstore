@@ -41,7 +41,7 @@ pipeline {
 					          }
 
 					steps{
-						withSonarQubeEnv('${SONARSERVER}') {
+						withSonarQubeEnv("${SONARSERVER}") {
 							withEnv(["SONAR_SCANNER_OPTS=--add-opens java.base/java.lang=ALL-UNNAMED"]){
                sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=onlinebookstore \
                    -Dsonar.projectName=oninebookstore \
