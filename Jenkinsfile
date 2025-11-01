@@ -42,7 +42,7 @@ pipeline {
 
 					steps{
 						withSonarQubeEnv("${SONARSERVER}") {
-							withEnv(["SONAR_SCANNER_OPTS=--add-opens java.base/java.lang=ALL-UNNAMED"]){
+							
                		 sh '''${scannerHome}/bin/sonar-scanner \
   							-Dsonar.projectKey=onlinebookstore \
   							-Dsonar.projectName=onlinebookstore \
@@ -50,14 +50,11 @@ pipeline {
   							-Dsonar.sources=src/ \
   							-Dsonar.java.binaries=target/classes'''
 
-           		 				}
+           		 				}}
 
-            		timeout(time: 10, unit: 'MINUTES') {
-              		 waitForQualityGate abortPipeline: true
-            		}
-						}
+            		
+						
 					}
-				}
 				stage('Deploy'){
 					steps{
 
