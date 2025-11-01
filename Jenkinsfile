@@ -43,13 +43,15 @@ pipeline {
 					steps{
 						withSonarQubeEnv("${SONARSERVER}") {
 							withEnv(["SONAR_SCANNER_OPTS=--add-opens java.base/java.lang=ALL-UNNAMED"]){
-               sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=onlinebookstore \
-                   -Dsonar.projectName=oninebookstore \
-                   -Dsonar.projectVersion=1.0 \
-                   -Dsonar.sources=src/ \
-                   -Dsonar.junit.reportsPath=target/surefire-reports/ \
-                   -Dsonar.jacoco.reportsPath=target/jacoco.exec \
-                   -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
+               		 sh '''${scannerHome}/bin/sonar-scanner \
+  							-Dsonar.projectKey=onlinebookstore \
+  							-Dsonar.projectName=onlinebookstore \
+  							-Dsonar.projectVersion=1.0 \
+  							-Dsonar.sources=src/ \
+  							-Dsonar.java.binaries=target/classes \
+  							-Dsonar.junit.reportPaths=target/surefire-reports \
+  							-Dsonar.jacoco.reportPaths=target/jacoco.exec \
+  							-Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
            		 }
 
             		timeout(time: 10, unit: 'MINUTES') {
