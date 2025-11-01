@@ -47,11 +47,7 @@ pipeline {
   							-Dsonar.projectKey=onlinebookstore \
   							-Dsonar.projectName=onlinebookstore \
   							-Dsonar.projectVersion=1.0 \
-  							-Dsonar.sources=src/ \
-  							-Dsonar.java.binaries=target/classes \
-  							-Dsonar.junit.reportPaths=target/surefire-reports \
-  							-Dsonar.jacoco.reportPaths=target/jacoco.exec \
-  							-Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
+  							-Dsonar.sources=src/ '''
            		 }
 
             		timeout(time: 10, unit: 'MINUTES') {
