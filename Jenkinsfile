@@ -22,7 +22,7 @@ pipeline {
 				{
 					steps{
 						echo "building..."	
-						sh "mvn clean package"
+						sh "mvn clean compile
 
 					}
 
@@ -47,8 +47,10 @@ pipeline {
   							-Dsonar.projectKey=onlinebookstore \
   							-Dsonar.projectName=onlinebookstore \
   							-Dsonar.projectVersion=1.0 \
-  							-Dsonar.sources=src/ '''
-           		 }
+  							-Dsonar.sources=src/ \
+  							-Dsonar.java.binaries=target/classes'''
+
+           		 				}
 
             		timeout(time: 10, unit: 'MINUTES') {
               		 waitForQualityGate abortPipeline: true
