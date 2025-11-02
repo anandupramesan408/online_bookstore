@@ -77,7 +77,7 @@ pipeline {
 					 steps{
 						sshagent(['webserver']) {
                     sh """ 
-						ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST}' sudo systemctl restart tomcat '
+						ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST} 'sudo systemctl restart tomcat'
 						"""
 					
 					}
