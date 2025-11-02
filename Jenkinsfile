@@ -59,7 +59,7 @@ pipeline {
 				stage('Deploy'){
 					steps{
 
-						echo "Deploy to the server..."
+						echo "Deploy to the server.."
 					}
 				}
 
