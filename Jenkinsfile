@@ -71,6 +71,9 @@ pipeline {
 					 """
 					 }
 					 }
+				}
+
+				stage('Restart service'){
 					 steps{
 						sshagent(['webserver']) {
                     sh """ 
@@ -80,10 +83,9 @@ pipeline {
 					}
 
 					 }
-
+					 }
         }
 
 			
 
-}
 }
