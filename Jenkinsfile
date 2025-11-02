@@ -23,7 +23,7 @@ pipeline {
 				{
 					steps{
 						echo "building..."	
-						sh "mvn clean compile"
+						sh "mvn clean package"
 
 					}
 
