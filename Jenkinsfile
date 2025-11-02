@@ -8,6 +8,12 @@ pipeline {
 		SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner'
 		SONAR_SCANNER_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED"
+		WAR_NAME = 'onlinebookstore.war'
+		REMOTE_USER = 'ec2-user'
+		REMOTE_HOST = 'ec2-user'
+		REMOTE_PATH = '/opt/tomcat/webapps'
+
+
 
 	}
         stages {  
@@ -60,6 +66,12 @@ pipeline {
 					steps{
 
 						echo "Deploy to the server.."
+
+						sshagent(['webserver']) {
+                    sh """
+                        scp -o StrictHostKeyChecking=no target/${WAR_NAME} ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
+                    """
+
 					}
 				}
 
