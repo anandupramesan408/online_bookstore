@@ -66,13 +66,24 @@ pipeline {
 					steps{
 						sshagent(['webserver']) {
                     sh """ scp -o StrictHostKeyChecking=no target/${WAR_NAME} ${REMOTE_USER}@${REMOTE_HOST}:/tmp 
-					
+
 					ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST} 'sudo mv /tmp/${WAR_NAME} ${REMOTE_PATH}'
 					 """
-
+					 }
+					 }
+					 steps{
+						sshagent(['webserver']) {
+                    sh """ 
+						ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST}' sudo systemctl restart tomcat '
+						"""
+					
 					}
-				}
+
+					 }
 
         }
+
+			
+
 }
 }
