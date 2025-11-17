@@ -1,4 +1,4 @@
-##Building the app
+###Building the app
 FROM eclipse-temurin:11-jdk-alpine as builder
 WORKDIR /app
 COPY pom.xml .
