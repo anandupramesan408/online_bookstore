@@ -6,4 +6,4 @@ RUN mvn clean package -DskipTests
 FROM tomcat:jre17-temurin
 COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/
 EXPOSE 8080
-ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
+CMD ["catalina.sh", "run"]
