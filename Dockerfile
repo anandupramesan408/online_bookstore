@@ -1,5 +1,6 @@
 FROM maven:3.9.11-amazoncorretto-17-al2023 AS builder
 WORKDIR /app
+COPY . /app/
 RUN mvn clean package -DskipTests
 
 FROM tomcat:jre17-temurin
