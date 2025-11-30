@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: anandu408/onlinebook
+    image: anandu408/onlinebook:${TAG}
     container_name: onlinebook
     restart: always
     ports:
