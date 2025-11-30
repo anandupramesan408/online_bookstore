@@ -1,13 +1,8 @@
-version: "3.9"
 services:
-  mysql:
-    image: mysql:8.0
-    container_name: onlinebookstore-db
+  frontend:
+    build: .
+    container_name: onlinebook
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: onlinebookstore
     ports:
-      - "3306:3306"
-    volumes:
-      - ./db-init.sql:/docker-entrypoint-initdb.d/db-init.sql
+      -80:8080
+    
