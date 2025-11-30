@@ -1,7 +1,7 @@
 services:
   frontend:
     build: .
-    image: onlinebook/onlinebook:v1
+    image: anandu408/onlinebook
     container_name: onlinebook
     restart: always
     ports:
