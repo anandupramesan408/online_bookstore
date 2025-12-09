@@ -28,6 +28,11 @@ pipeline{
 
                 """
             }
+            post {
+                success {
+                    cleanWs ()
+                }
+            }
 
 
         }
