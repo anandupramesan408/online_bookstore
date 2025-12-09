@@ -46,17 +46,11 @@ pipeline{
 
                   sh """
 
-                   echo "DEBUG: who am I and what groups do I have?"
-                        id
-                        groups
-                        ls -l /var/run/docker.sock
-
-                        echo "Trying docker ps..."
-                        docker ps
-
-                        hostname
+                  docker image rm -f anandu408/onlinebook:latest
 
                  docker-compose -f docker-compose-run.yml up -d
+                 
+                
 
                      """
                 }
