@@ -23,7 +23,7 @@ pipeline{
                 docker tag anandu408/onlinebook:v1.${BUILD_NUMBER} anandu408/onlinebook:latest
                 docker push anandu408/onlinebook:v1.${BUILD_NUMBER}
                 docker push anandu408/onlinebook:latest
-                docker image prune -a
+                docker image prune -a -f
                 
 
                 """
@@ -31,18 +31,23 @@ pipeline{
 
 
         }
-        // stage (Deploy ){
+         stage (Deploy ){
 
-            //    echo "Deploying the app"
-
-          //      sh """
-
-            //    docker-compose -f docker-compose-run.yml up -d
-
-              //  """
+                agent {label ''}
 
 
-        //}
+                echo "Deploying the app"
+
+                  sh """
+
+                  hostname
+
+            //     docker-compose -f docker-compose-run.yml up -d
+
+                     """
+
+
+        }
         
     }
 }
