@@ -22,7 +22,7 @@ pipeline{
                 docker compose -f docker-compose-build.yml build --build-arg BUILD_NUMBER=${BUILD_NUMBER}
                 docker tag online_bookstore:v1.${BUILD_NUMBER} online_bookstore:latest
                 docker push anandu408/onlinebook:v1.${BUILD_NUMBER}
-                docker push online_bookstore:latest
+                docker push anandu408/onlinebook:latest
 
                 """
             }
