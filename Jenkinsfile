@@ -15,10 +15,12 @@ pipeline{
         stage("build"){
 
             steps{
-                echo "Building docker image..."
+                echo "Building docker image...."
                 sh """
 
-                docker compose -f docker-compose-build.yml build
+                export BUILD_NUMBER=${BUILD_NUMBER}
+                docker compose -f docker-compose-build.yml build --build-arg BUILD_NUMBER=${BUILD_NUMBER}
+
 
 
                 """
