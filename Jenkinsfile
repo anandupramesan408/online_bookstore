@@ -13,7 +13,7 @@ pipeline{
         }
         stage("build"){
 
-            agent agent { label 'build-agent-docker' }
+            agent { label 'build-agent-docker' }
 
             steps{
                 echo "Building docker image..."
