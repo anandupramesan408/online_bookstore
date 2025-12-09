@@ -41,9 +41,17 @@ pipeline{
 
                   sh """
 
-                  hostname
+                   echo "DEBUG: who am I and what groups do I have?"
+                        id
+                        groups
+                        ls -l /var/run/docker.sock
 
-                 docker-compose -f docker-compose-run.yml up -d
+                        echo "Trying docker ps..."
+                        docker ps
+
+                        hostname
+
+                // docker-compose -f docker-compose-run.yml up -d
 
                      """
                 }
