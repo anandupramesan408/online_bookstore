@@ -46,9 +46,10 @@ pipeline{
 
                   sh """
 
-                  docker image rm -f anandu408/onlinebook:latest
+                    docker compose -f docker-compose-run.yml down --remove-orphans
+                    docker compose -f docker-compose-run.yml pull
+                    docker compose -f docker-compose-run.yml up -d --force-recreate
 
-                 docker-compose -f docker-compose-run.yml up -d
                  
                 
 
