@@ -31,10 +31,11 @@ pipeline{
 
 
         }
-         stage (Deploy ){
+         stage ("Deploy"){
 
-                agent {label ''}
+                agent { label 'deployment-node' }
 
+            steps {
 
                 echo "Deploying the app"
 
@@ -42,10 +43,11 @@ pipeline{
 
                   hostname
 
+            // comment
             //     docker-compose -f docker-compose-run.yml up -d
 
                      """
-
+                }
 
         }
         
