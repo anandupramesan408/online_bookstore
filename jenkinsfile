@@ -13,13 +13,13 @@ pipeline{
         }
         stage("build"){
 
-            agent 
+            agent agent { label 'build-agent-docker' }
 
             steps{
                 echo "Building docker image.."
                 sh """
 
-                docker compose build -f docker-compose-build.yml
+                docker compose -f docker-compose-build.yml build
 
 
                 """
