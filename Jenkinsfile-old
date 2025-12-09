@@ -13,6 +13,8 @@ pipeline {
 		REMOTE_HOST = '172.31.18.177'
 		REMOTE_PATH = '/opt/tomcat/webapps/'
 
+		
+
 
 
 	}
